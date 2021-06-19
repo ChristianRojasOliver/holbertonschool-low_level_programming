@@ -12,10 +12,12 @@ int main(void)
 	{
 		putchar(a);
 		if (a != 57)
-		putchar(',');
-		putchar(' ');
+		{
+			putchar(',');
+			putchar(' ');
+		}
 		a++;
 	}
 	putchar('\n');
-		return (0);
+	return (0);
 }
