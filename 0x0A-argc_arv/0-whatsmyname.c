@@ -2,6 +2,8 @@
 
 /**
  * main - print the name followed by \n
+ * @argc: parameter
+ * @argv: parameter
  * Return: nothing
  */
 int main(int __attribute__((unused)) argc, char *argv[])
