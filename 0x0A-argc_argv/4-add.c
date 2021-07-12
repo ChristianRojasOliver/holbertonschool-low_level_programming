@@ -1,23 +1,36 @@
+#include "holberton.h"
 #include <stdio.h>
-#include <stdlib.h>
 
 /**
- * main - print the number of argument followed by \n
+ * main - write a program that adds positives numbers
  * @argc: parameter
  * @argv: parameter
  * Return: nothing
  */
 int main(int argc, char *argv[])
 {
-	int x, y;
+	int count, intcheck;
+	int sum = 0;
 
-	if (argc != 3)
+	if (argc == 1)
 	{
-		printf("Error\n");
-		return (1);
+		printf("0\n");
+		return (0);
 	}
-	x = atoi(argv[1]);
-	y = atoi(argv[2]);
-	printf("%d\n", x + y);
+
+	for (count = 1 ; count < argc ; count++)
+	{
+		for (intcheck = 0 ; argv[count][intcheck] != '\0' ; intcheck++)
+		{
+			if (!isdigit(argv[count][intcheck]))
+			{
+				printf("Error\n");
+				return (1);
+			}
+		}
+		sum += atoi(argv[count]);
+	}
+	printf("%i\n", sum);
+
 	return (0);
 }
