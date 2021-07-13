@@ -2,8 +2,7 @@
 #include <stdlib.h>
 /**
  * _strdup - return a pointer to a newly allocated space in memory
- * @s: parameter
- * @counter: parameter
+ * @str: parameter
  * Return: a
  */
 char *_strdup(char *str)
@@ -18,7 +17,7 @@ char *_strdup(char *str)
 	}
 	for (counter = 0; str[counter] != '\0'; counter++)
 		;
-	a = malloc(sizeof(char) *counter + 1);
+	a = malloc(sizeof(char) * counter + 1);
 	if (a == NULL)
 	{
 		return (NULL);
