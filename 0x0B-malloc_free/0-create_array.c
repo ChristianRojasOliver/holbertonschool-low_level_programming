@@ -12,7 +12,7 @@ char *create_array(unsigned int size, char c)
 	char *allocate = NULL;
 	unsigned int counter;
 
-	allocate = malloc(sizeof(char) * 98);
+	allocate = malloc(sizeof(char) * size);
 	if (allocate == NULL)
 	{
 		return (NULL);
