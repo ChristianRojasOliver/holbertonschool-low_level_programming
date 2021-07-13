@@ -21,5 +21,9 @@ char *create_array(unsigned int size, char c)
 	{
 		allocate[counter] = c;
 	}
+	if (size == 0)
+	{
+		return (NULL);
+	}
 	return (allocate);
 }
