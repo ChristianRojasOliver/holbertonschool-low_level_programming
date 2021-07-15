@@ -36,6 +36,7 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 		s3[len1] = s2[len2];
 		len1++;
 	}
+	s3[len1] = s2[len2];
 	return (s3);
 }
 /**
