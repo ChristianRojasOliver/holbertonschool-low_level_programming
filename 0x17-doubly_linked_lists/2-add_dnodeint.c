@@ -4,7 +4,7 @@
 /**
  * add_dnodeint - function adds doble node integer
  * @head: parameter
- * n: parameter
+ * @n: const int
  * Return: the adress of the new element, or NULL if it failed
  */
 
