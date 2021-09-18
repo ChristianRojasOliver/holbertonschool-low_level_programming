@@ -1,48 +1,48 @@
 #include "lists.h"
-
 /**
- * insert_dnodeint_at_index - function
- * @h: parameter
- * @idx: parameter
- * @n: parameter
- * Return: the address of the new node, or NULL if it failed
- */
+* insert_dnodeint_at_index - insert node in specific index
+* @h: pointer to list
+* @idx: index
+* @n: value of new node
+* Return: list with new node
+*/
 dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 {
-	dlistint_t *insert, *temp;
-	unsigned int counter = 0;
+unsigned int i;
+	dlistint_t *node, *new;
 
-	if (h == NULL)
+	node = malloc(sizeof(dlistint_t));
+	if (node == NULL)
 		return (NULL);
-
-	insert = malloc(sizeof(dlistint_t));
-	if (insert == NULL)
-		return (NULL);
-
+	new = (*h);
+	node->prev = NULL;
+	node->next = NULL;
+	node->n = n;
 	if (idx == 0)
 	{
-		insert->n = n;
-		insert->prev = NULL;
-		insert->next = *h;
-		*h = insert;
-		return (insert);
+		if (*h == NULL)
+			(*h) = node;
+		else
+		{
+			node->next = (*h);
+			new->prev = node;
+			(*h) = node;
+		}
+		return (node);
 	}
-
-	temp = *h;
-
-	while (counter < (idx - 1) && temp != NULL)
+	for (i = 0; new->next != NULL || i + 1 == idx; i++)
 	{
-		temp = temp->next;
-		counter++;
+		if (i + 1 == idx)
+		{
+			if (new->next != NULL)
+				new->next->prev = node;
+			node->next = new->next;
+			new->next = node;
+			node->prev = new;
+			return (node);
+		}
+		new = new->next;
 	}
-
-	if (temp == NULL)
-		return (NULL);
-
-	insert->n = n;
-	insert->prev = temp;
-	insert->next = temp->next;
-	temp->next = insert;
-
-	return (insert);
+	free_dlistint(node);
+	return (NULL);
 }
